@@ -1,12 +1,10 @@
 package qgram;
 
-import java.util.Hashtable;
-
 public class ConstructQGram {
 	
 	public static void main(String[] args) {
 		String s = "ttatctctta";
-//		String t = "TTATCTCTTA";
+//		String s = "TTATCTCTTATAGTGACTCGTAGTCGATCGTACGCTAGTACGCTACGTATCGCTAGAACGTTGCTCGGTCTAGCTCGCATGCAGCTAGACTCAGGCATCGACATGCATACGGCATCGACATCAGT";
 		String alphabet = "ACGT";
 		int q = 2;
 		String grams[];		

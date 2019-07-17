@@ -6,8 +6,8 @@ import java.util.Hashtable;
 public class OpenAdd {
 	
 	public static void main(String[] args) {
-		String s = "ttatctctta";
-//		String t = "TTATCTCTTA";
+//		String s = "ttatctctta";
+		String s = "TTATCTCTTATAGTGACTCGTAGTCGATCGTACGCTAGTACGCTACGTATCGCTAGAACGTTGCTCGGTCTAGCTCGCATGCAGCTAGACTCAGGCATCGACATGCATACGGCATCGACATCAGT";
 		String alphabet = "ACGT";
 		int q = 2;
 		String grams[];		
@@ -46,9 +46,9 @@ public class OpenAdd {
 //		System.out.println(); 
 //		for (String gram:grams) 
 //			System.out.print(gram +"\t");
-		System.out.println();
-		for (int d:dir) 
-			System.out.print(d +" | ");
+//		System.out.println();
+//		for (int d:dir)
+//			System.out.print(d +" | ");
 		
 		
 		// fill pos table
@@ -60,35 +60,45 @@ public class OpenAdd {
 			pos[dir[index]] = j;
 			dir[index]++;
 		}
+
+		// Added: fix the dir table
+		for (int j=0; j<s.length() - q + 1; j++) {
+			String c = s.substring(j, j+q);
+			int index = getIndex(c, grams);
+			index = getBucket(index, C); // added
+			dir[index]--;
+		}
+
+		System.out.println("alpha = "+alpha);
 		
-		System.out.println(); 
+//		System.out.println();
 //		for (String gram:grams) 
 //			System.out.print(gram +" | ");
-		System.out.println();
+		System.out.println("\ndir size: " +dir.length);
 		for (int d:dir) 
 			System.out.print(d +" | ");
-		System.out.println("\ndir size: " +dir.length);
+
 		
-		System.out.println("\npos table size: " +pos.length );
+		System.out.println("\n\npos table size: " +pos.length );
 		for (int i:pos) {
 			System.out.print(i +" | ");
 		}
-		
-		System.out.println("\n\ns = " +s);
-		
-		System.out.println("Code Table: " +C.length);
+
+		System.out.println("\n\nCode Table size: " +C.length);
 		for (int i:C)
-			System.out.print(i +"\t");
+			System.out.print(i +" | ");
 		System.out.println();
-		
+
+		System.out.println("\ns = " +s);
+
 		String query = "AT";
 		System.out.println("\nWhere's "+query +"?");
 		int codeValue = getIndex(query, grams);
 		int dirIndex = getBucket(codeValue, C);
 		int numOfGrams = dir[dirIndex+1] - dir[dirIndex];
-		int indices[] = new int[numOfGrams];
-		System.out.println("test: " +numOfGrams);
-		System.out.print("Found in: ");		
+//		int indices[] = new int[numOfGrams];
+//		System.out.println("test: " +numOfGrams);
+		System.out.print("Found in: ");
 		while (numOfGrams>0) {
 			System.out.print(pos[dirIndex] +", ");
 			dirIndex++;
