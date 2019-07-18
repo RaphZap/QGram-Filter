@@ -91,17 +91,18 @@ public class OpenAdd {
 
 		System.out.println("\ns = " +s);
 
-		String query = "AT";
+		String query = "tc";
 		System.out.println("\nWhere's "+query +"?");
 		int codeValue = getIndex(query, grams);
 		int dirIndex = getBucket(codeValue, C);
 		int numOfGrams = dir[dirIndex+1] - dir[dirIndex];
 //		int indices[] = new int[numOfGrams];
-//		System.out.println("test: " +numOfGrams);
+		System.out.println("test: " +codeValue);
 		System.out.print("Found in: ");
+		int posIndex = dir[dirIndex];
 		while (numOfGrams>0) {
-			System.out.print(pos[dirIndex] +", ");
-			dirIndex++;
+			System.out.print(pos[posIndex] +", ");
+			posIndex++;
 			numOfGrams--;
 		}
 		System.out.println();
