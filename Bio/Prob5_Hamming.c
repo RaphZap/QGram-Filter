@@ -47,16 +47,18 @@ int main() {
     }
     
 //    printf("\nCount: %d", count);
+
+	// DEBUGGING
 	int i;
-	printf("\n\ns: ");
-	for(i=0; i<length; i++) {		
-		printf("%c", s[i]);
-	}
-	printf("\n\nt: ");	
-	for(i=0; i<length; i++) {		
-		printf("%c", t[i]);
-	}
-	
+//	printf("\n\ns: ");
+//	for(i=0; i<length; i++) {		
+//		printf("%c", s[i]);
+//	}
+//	printf("\n\nt: ");	
+//	for(i=0; i<length; i++) {		
+//		printf("%c", t[i]);
+//	}
+//	
 	// checking
 	int hamCount = 0;
 	for(i=0; i<length; i++) {		
@@ -64,7 +66,7 @@ int main() {
 			hamCount++;
 		}
 	}
-	printf("\n\n");
+//	printf("\n\n");
 	printf("hamming distance: %d", hamCount);
 	
 	fclose(fp);

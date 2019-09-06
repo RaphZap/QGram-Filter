@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#define KAY 3
+#define KAY 2
 
 int main() {	
 	int size = 4;
@@ -12,7 +12,7 @@ int main() {
 	char kmer[KAY+1];
 	
 	int total = pow(KAY, size);
-	printf("total: %d\n\n", total);
+//	printf("total: %d\n\n", total);
 	
 	for(x=0; x<KAY; x++) {		
 		dispLetter(alphabet, &size, x, kmer);
@@ -42,7 +42,7 @@ void dispLetter(char alphabet[], int *size, int x, char kmer[]) {
 ////				printf("%c", kmer[y]);
 //			}
 //			printf("\t");
-			printf("%s \n", kmer);
+			printf("%s, ", kmer);
 //			printf("%d \n", x);
 		}
 	}

@@ -25,7 +25,7 @@ int main() {
 		}
 		for(x=0; x<KAY; x++) 
 			printf("%c", t[x]);
-		printf("\n");
+		printf(", ");
 	}
 		
 		

@@ -50,14 +50,14 @@ int main() {
     }
     
 	int i;
-	printf("s: ");
-	for(i=0; i<index1; i++) {		
-		printf("%c", s[i]);
-	}
-	printf("\n\nt: ");	
-	for(i=0; i<index2; i++) {		
-		printf("%c", t[i]);
-	}
+//	printf("s: ");
+//	for(i=0; i<index1; i++) {		
+//		printf("%c", s[i]);
+//	}
+//	printf("\n\nt: ");	
+//	for(i=0; i<index2; i++) {		
+//		printf("%c", t[i]);
+//	}
 	
 	// checking
 	int locations[index1-index2+1];
@@ -83,8 +83,8 @@ int main() {
 		}
 	}
 	
-	printf("\nnum: %d",index1);
-	printf("\n\n locations: ");
+//	printf("\nnum: %d",index1);
+	printf("locations: ");
 	for(i=0; i<num; i++) {
 		printf("%d, ",locations[i]);
 	}
