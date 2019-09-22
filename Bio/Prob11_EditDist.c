@@ -12,10 +12,12 @@
 
 int main() {
 	char alphabet[] = {"ACGT"};
-	char s[] = {"-TCCGAAAC---"};
-	char t[] = {"ATGC-ATGCCGG"};	
-	int s_size = 12,
-		t_size = 12;
+//	char s[] = {"-TCCGAAAC---"};
+//	char t[] = {"ATGC-ATGCCGG"};
+	char s[] = {"TCCGAAAC"};
+	char t[] = {"ATGCATGCCGG"};
+	int s_size = 8,
+		t_size = 11;
 //	int s_size, t_size;
 	int i = 0;
 	char letter;
@@ -70,20 +72,20 @@ int main() {
 	// return dp[m][n]		
 	printf("\ndp[m][n]: %d \n", dp[s_size][t_size]);
 	
-	// DEBUGGING Matsrix
-//
-//	printf("| @ | - ");
-//	for(i=0; i<s_size; i++) 
-//		printf("| %c ",s[i]);
-//	printf("\n");
-//	for(i=0; i<=s_size; i++) {
-//		for(j=0; j<=t_size; j++) {	
-//			if (j==0)
-//				printf("| %c ",t[i-1]);		
-//			printf("| %d ",dp[i][j]);
-//		}
-//			printf("\n");
-//	}
+	// DEBUGGING Matrix
+
+	printf("|   | - ");
+	for(i=0; i<t_size; i++) 
+		printf("| %c ",t[i]);
+	printf("\n");
+	for(i=0; i<=s_size; i++) {
+		for(j=0; j<=t_size; j++) {	
+			if (j==0)
+				printf("| %c ",s[i-1]);		
+			printf("| %d ",dp[i][j]);
+		}
+			printf("\n");
+	}
 	
 	return 0;
 }

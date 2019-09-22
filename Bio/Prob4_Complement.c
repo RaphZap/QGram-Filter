@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// typedef char String[29];
-
 int main() {
-	
-	// String input;
 	FILE *fp;
-	char word[256];
 	char letter;
 	
 	fp = fopen("ndna_255.fa", "r");
@@ -18,17 +13,10 @@ int main() {
         exit(1);         
     }
     
-//	while (fscanf(fp, "%s", word) == 1 ) {
-//	    printf("%s ", word);		
-//    }
-    
-    int countA = 0,
-		countC = 0,
-		countG = 0,
-		countT = 0,
-		countLength = 0,
+    int countLength = 0,
 		countNotACGT = 0;
     int isLabel = 0; // boolean
+    char input[256];
     
     while (fscanf(fp, "%c", &letter) == 1 ) {
     	if (letter == '>') {
@@ -42,23 +30,40 @@ int main() {
 		} else { // isn't part of the label			
 			if (letter != '\n') {
 //				printf("%c",letter);
-				countLength++;
-				if (letter == 'A')
-					printf("T");
-				else if (letter == 'C')
-					printf("G");
-				else if (letter == 'G')
-					printf("C");
-				else if (letter == 'T')
-					printf("A");
-				else 
-					printf("%c",letter);			
-			}				
+				input[countLength] = letter;
+				countLength++;				
+			}						
 		}
     }
     
+    printf("Length = %d \n",countLength);
+    countLength--;
+    
+    printf("Reverse Complement: ");
+    while (countLength >= 0) {    	
+		if (input[countLength] == 'A')
+			printf("T");
+		else if (input[countLength] == 'C')
+			printf("G");
+		else if (input[countLength] == 'G')
+			printf("C");
+		else if (input[countLength] == 'T')
+			printf("A");
+		else 
+			printf("%c",input[countLength]);			
+		countLength--;
+	}
     
 	fclose(fp);
 	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
